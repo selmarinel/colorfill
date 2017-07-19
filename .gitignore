@@ -1,0 +1,7 @@
+/vendor/
+.idea/colorfill.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/
+composer.lock
+index.php
