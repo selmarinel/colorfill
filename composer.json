@@ -8,7 +8,6 @@
       "email": "selmarinel@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
   "require": {
   },
   "autoload": {
