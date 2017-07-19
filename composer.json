@@ -11,9 +11,6 @@
   "minimum-stability": "dev",
   "require": {
   },
-  "require-dev": {
-    "joshtronic/php-loremipsum": "dev-master"
-  },
   "autoload": {
     "psr-4": {
       "ColorFill\\": "src/"
