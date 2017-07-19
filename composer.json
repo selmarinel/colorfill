@@ -1,0 +1,22 @@
+{
+  "name": "selmarinel/colorfill",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Selmarinel",
+      "email": "selmarinel@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+  },
+  "require-dev": {
+    "joshtronic/php-loremipsum": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "ColorFill\\": "src/"
+    }
+  }
+}
