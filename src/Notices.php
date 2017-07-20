@@ -9,35 +9,50 @@ trait Notices
 {
     use Colors;
 
+    public function __call($name, $arguments)
+    {
+        return $this->_default();
+    }
+
+    private function _default()
+    {
+        return "";
+    }
+
+    public function timed($inline = false)
+    {
+        print_r($this->colored("[" . date("Y-m-d H:i:s") . "]" . ((!$inline)?"\n":""), "light_purple"));
+    }
+
     public function log($sting)
     {
-        print_r($this->colored("$sting\n"));
+        print_r($this->timeStamp("light_purple") . $this->colored("$sting\n"));
     }
 
     public function success($string)
     {
-        print_r($this->colored("$string\n", "light_green"));
+        print_r($this->timeStamp("light_purple") . $this->colored("$string\n", "light_green"));
     }
 
     public function warning($string)
     {
-        print_r($this->colored("$string\n", "yellow"));
+        print_r($this->timeStamp("light_purple") . $this->colored("$string\n", "yellow"));
     }
 
     public function error($string)
     {
-        print_r($this->colored("$string\n", "light_red"));
+        print_r($this->timeStamp("light_purple") . $this->colored("$string\n", "light_red"));
     }
 
     public function info($string)
     {
-        print_r($this->colored("$string\n", "light_blue"));
+        print_r($this->timeStamp("light_purple") . $this->colored("$string\n", "light_blue"));
     }
 
     public function counts($string, $count, $color = "white", $secondColor = "light_cyan", $bgColor = "", $secondBgColor = "")
     {
         $countString = $this->colored($count, $secondColor, $secondBgColor) . $this->colored("", $color, $bgColor, true);
-        print_r(sprintf($this->colored($string . " [%s]", $color, $bgColor), $countString) . "\n");
+        print_r($this->timeStamp("light_purple") . sprintf($this->colored($string . " [%s]", $color, $bgColor), $countString) . "\n");
     }
 
     private $digits = 100;
@@ -59,7 +74,7 @@ trait Notices
         print_r("\n");
 
         if (mb_stripos($color, "light") !== false) {
-            $noticeColor = mb_substr($color,6);
+            $noticeColor = mb_substr($color, 6);
         } else {
             $noticeColor = "light_$color";
         }
@@ -84,12 +99,12 @@ trait Notices
 
     public function infoNotice($string)
     {
-        $this->notice($string,"light_blue","","Info");
+        $this->notice($string, "light_blue", "", "Info");
     }
 
     public function successNotice($string)
     {
-        $this->notice($string,"light_green","","Success");
+        $this->notice($string, "light_green", "", "Success");
     }
 
     public function countdown($from, $to, $add = "", $type = "numbers")
